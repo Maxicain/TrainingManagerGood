@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../App"
+import SchoolModel from "../Model/SchoolModel";
+import Etablissement = SchoolModel.Etablissement;
+import {Link, useParams} from "react-router-dom";
 
 export const Etablissements = () => {
-    var [etablissements, setEtablissements] = useState<any[]>([])
+    let {villeId} = useParams()
+    var [etablissements, setEtablissements] = useState<Etablissement[]>([])
 
     useEffect(() => {(async () => {
-        const response = await fetch(BASE_URL + "etablissements");
+        const response = await fetch(BASE_URL + `etablissements/${villeId}`);
         const json = await response.json();
-        setEtablissements(json)
+        json !== null ? setEtablissements(json) : setEtablissements([])
     })()}, [])
 
-    const OnEtablissementClick = () => {
-
-    }
 
     return(
         <div>
             <h2>Établissements</h2>
             <div className="d-grid gap-2 col-6 mx-auto">
-                {etablissements.map((e) => 
-                    <button key={e.id} onClick={OnEtablissementClick} className="btn btn-primary">{e.titre}</button>
-                    )}
+                {etablissements.map((e) =>
+                <Link to={`/${e.id}`} className="btn btn-primary">{e.nom}</Link>)}
             </div>
         </div>
     )

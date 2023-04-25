@@ -22,8 +22,8 @@ public class SchoolAppController {
         return schoolRepoImpl.FindAllVille();
     }
 
-    @RequestMapping(value = "/ville/{id}", method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Etablissement> EtablissementsJSON(@PathVariable Long id){
-        return schoolRepoImpl.FindEtablissementByVilleId(id);
+    @RequestMapping(value = "/etablissement/{villeId}", method = RequestMethod.GET,  produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Etablissement> EtablissementsJSON(@PathVariable Long villeId){
+        return schoolRepoImpl.FindEtablissementByVilleId(villeId);
     }
 }
