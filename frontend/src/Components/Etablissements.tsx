@@ -9,18 +9,19 @@ export const Etablissements = () => {
     var [etablissements, setEtablissements] = useState<Etablissement[]>([])
 
     useEffect(() => {(async () => {
-        const response = await fetch(BASE_URL + `etablissements/${villeId}`);
+        const response = await fetch(BASE_URL + `etablissement/${villeId}`)
         const json = await response.json();
-        json !== null ? setEtablissements(json) : setEtablissements([])
+        console.log(json)
+        json !== null || [] ? setEtablissements(json) : setEtablissements([])
     })()}, [])
 
-
+    console.log(etablissements)
     return(
         <div>
-            <h2>Établissements</h2>
+            <h2 className={"display-4 text-center"}>Établissements</h2>
             <div className="d-grid gap-2 col-6 mx-auto">
                 {etablissements.map((e) =>
-                <Link to={`/${e.id}`} className="btn btn-primary">{e.nom}</Link>)}
+                    <Link to={`/${e.id}`} key={e.id} className="btn btn-primary">{e.titre}</Link>)}
             </div>
         </div>
     )

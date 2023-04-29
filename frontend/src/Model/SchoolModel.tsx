@@ -7,7 +7,7 @@ export namespace SchoolModel{
 
     export interface Etablissement {
         id: number
-        nom: string
+        titre: string
         ville: Ville
     }
 

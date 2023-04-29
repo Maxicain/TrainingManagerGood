@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Entity
@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Presentation {
     @Id
-    private Date date;
+    private LocalDate date;
     private int duree;
     @ManyToOne
     @JoinColumn(name = "cours_id")

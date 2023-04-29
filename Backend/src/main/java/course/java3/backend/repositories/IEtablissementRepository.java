@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IEtablissementRepository extends JpaRepository<Etablissement, Long> {
-    public List<Etablissement> findAllByVilleId(Long id);
+    List<Etablissement> findAllByVille_Id(Long id);
 }

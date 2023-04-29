@@ -41,12 +41,12 @@ public class SchoolServiceImpl implements ISchoolServiceImpl{
 
     @Override
     public List<Etablissement> FindEtablissementByVilleId(Long id) {
-        return eRepo.findAllByVilleId(id);
+        return eRepo.findAllByVille_Id(id);
     }
 
     @Override
     public List<Salle> FindSalleByEtablissementId(Long id) {
-        return null;
+        return salleRepo.findAllByEtablissement_Id(id);
     }
 
     @Override

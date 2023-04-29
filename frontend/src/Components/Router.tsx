@@ -4,13 +4,11 @@ import Etablissements from "./Etablissements";
 import React from "react";
 
 export const AppRouter = () => {
-    let {villeId} = useParams()
-
     return (
         <BrowserRouter>
             <Routes>
                 <Route path={"/"} element={<Villes/>}/>
-                <Route path={`/etablissements/${villeId}`} element={<Etablissements/>}/>
+                <Route path={`/etablissements/:villeId`} element={<Etablissements/>}/>
             </Routes>
         </BrowserRouter>
     )
