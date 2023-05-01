@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,7 +19,7 @@ public class Cours {
     private int nbrCredit;
     private int duree;
     @OneToMany(mappedBy = "cours")
-    private Set<Presentation> presentations;
+    private List<Presentation> presentations;
     @OneToOne
     private Specialite specialite;
 }

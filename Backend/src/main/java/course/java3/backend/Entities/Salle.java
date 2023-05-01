@@ -6,8 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-
-import java.util.Set;
+import java.util.List;
 
 
 @Entity
@@ -23,5 +22,5 @@ public class Salle {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Etablissement etablissement;
     @OneToMany(mappedBy = "salle")
-    private Set<Presentation> presentations;
+    private List<Presentation> presentations;
 }

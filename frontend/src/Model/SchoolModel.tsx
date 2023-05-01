@@ -11,14 +11,14 @@ export namespace SchoolModel{
         ville: Ville
     }
 
-    interface Salle {
+    export interface Salle {
         id: number
         nom: string
         etablissement: Etablissement
         presentations: [Presentation]
     }
 
-    interface Cours{
+    export interface Cours{
         id: number
         titre: string
         description: string
@@ -27,7 +27,7 @@ export namespace SchoolModel{
         presentations: [Presentation]
     }
 
-    interface Presentation{
+    export interface Presentation{
         id: number
         date: Date
         duree: number
@@ -37,26 +37,26 @@ export namespace SchoolModel{
         coupons: [Coupon]
     }
 
-    interface Place{
+    export interface Place{
         id: number
         position: string
         salle: Salle
         coupon: Coupon
     }
 
-    interface Sceance{
+    export interface Sceance{
         id: number
         heureDebut: string
         presentation: Presentation
     }
 
-    interface Specialite{
+    export interface Specialite{
         id: number
         titre: string
         cours: [Cours]
     }
 
-    interface Coupon{
+    export interface Coupon{
         id: number
         nomClient: string
         tarif: number

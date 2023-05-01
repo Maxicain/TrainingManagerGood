@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { BASE_URL } from "../App";
-import SchoolModel from "../Model/SchoolModel";
+import { BASE_URL } from "../../App";
+import SchoolModel from "../../Model/SchoolModel";
 import {Link} from "react-router-dom";
 import Ville = SchoolModel.Ville;
 

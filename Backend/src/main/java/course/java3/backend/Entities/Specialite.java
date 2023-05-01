@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,5 +16,5 @@ public class Specialite {
     private Long id;
     private String titre;
     @OneToMany
-    private Set<Cours> cours;
+    private List<Cours> cours;
 }

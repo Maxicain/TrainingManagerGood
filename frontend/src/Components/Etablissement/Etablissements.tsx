@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { BASE_URL } from "../App"
-import SchoolModel from "../Model/SchoolModel";
+import { BASE_URL } from "../../App"
+import SchoolModel from "../../Model/SchoolModel";
 import Etablissement = SchoolModel.Etablissement;
 import {Link, useParams} from "react-router-dom";
 
@@ -11,7 +11,6 @@ export const Etablissements = () => {
     useEffect(() => {(async () => {
         const response = await fetch(BASE_URL + `etablissement/${villeId}`)
         const json = await response.json();
-        console.log(json)
         json !== null || [] ? setEtablissements(json) : setEtablissements([])
     })()}, [])
 
