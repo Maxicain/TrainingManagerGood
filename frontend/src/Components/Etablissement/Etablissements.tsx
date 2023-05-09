@@ -12,15 +12,14 @@ export const Etablissements = () => {
         const response = await fetch(BASE_URL + `etablissement/${villeId}`)
         const json = await response.json();
         json !== null || [] ? setEtablissements(json) : setEtablissements([])
-    })()}, [])
+    })()}, [villeId])
 
-    console.log(etablissements)
     return(
         <div>
             <h2 className={"display-4 text-center"}>Établissements</h2>
             <div className="d-grid gap-2 col-6 mx-auto">
                 {etablissements.map((e) =>
-                    <Link to={`/${e.id}`} key={e.id} className="btn btn-primary">{e.titre}</Link>)}
+                    <Link to={`/salles/${e.id}`} key={e.id} className="btn btn-primary">{e.titre}</Link>)}
             </div>
         </div>
     )

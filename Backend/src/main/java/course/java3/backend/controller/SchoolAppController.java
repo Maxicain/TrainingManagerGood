@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -29,9 +31,14 @@ public class SchoolAppController {
         return schoolRepoImpl.FindEtablissementByVilleId(villeId);
     }
 
-    @RequestMapping(value = "/presentations/{etabId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Presentation> getPresentationsJson(Long etabId){
-        var salles = schoolRepoImpl.FindSalleByEtablissementId(etabId);
-        return salles.get(0).getPresentations();
+    @RequestMapping(value = "/salle/{etabId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Salle> getSallesJson(@PathVariable Long etabId){
+        return schoolRepoImpl.FindSalleByEtablissementId(etabId);
+    }
+
+    @RequestMapping(value = "/presentations/{salleId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Presentation> getPresentationsJson(@PathVariable Long salleId){
+        var pres = schoolRepoImpl.FindPresentationBySalleId(salleId);
+        return pres;
     }
 }

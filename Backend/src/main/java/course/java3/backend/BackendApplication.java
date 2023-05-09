@@ -81,11 +81,11 @@ public class BackendApplication implements CommandLineRunner{
         specRepo.saveAll(specialites);
 
         List<Salle> salles = Arrays.asList(
-            new Salle(null,"A-100",EtabMontreal.get(0),null),
+            new Salle(null,"A-100", EtabMontreal.get(0), null),
             new Salle(null,"A-200", EtabMontreal.get(0), null),
             new Salle(null,"B-100", EtabMontreal.get(1), null),
             new Salle(null,"B-200", EtabMontreal.get(1), null),
-            new Salle(null,"C-100",EtabToronto.get(0),null),
+            new Salle(null,"C-100", EtabToronto.get(0), null),
             new Salle(null,"C-200", EtabToronto.get(0), null),
             new Salle(null,"D-100", EtabToronto.get(1), null),
             new Salle(null,"D-200", EtabToronto.get(1), null)
@@ -211,15 +211,14 @@ public class BackendApplication implements CommandLineRunner{
         var couponsPres3 = new ArrayList<>(couponRepo.findAll().subList(40, 60));
 
         List<Presentation> presentations = Arrays.asList(
-            new Presentation(null, LocalDate.of(2023, 3, 20),3, allCourses.get(0),  salles.get(0) , sceances.get(0), couponsPres1),
-            new Presentation(null, LocalDate.of(2023, 3, 22),3, allCourses.get(0),  salles.get(0) , sceances.get(0), couponsPres2),
-            new Presentation(null, LocalDate.of(2023, 3, 25),3, allCourses.get(0),  salles.get(0) , sceances.get(0), couponsPres3),
-            new Presentation(null, LocalDate.of(2023, 3, 25),3, allCourses.get(0),  salles.get(1) , sceances.get(1), null)
+            new Presentation(null, LocalDate.of(2023, 3, 20),3, null,  null , sceances.get(0), couponsPres1),
+            new Presentation(null, LocalDate.of(2023, 3, 22),3, null,  null , sceances.get(0), couponsPres2),
+            new Presentation(null, LocalDate.of(2023, 3, 25),3, null,  null , sceances.get(0), couponsPres3),
+            new Presentation(null, LocalDate.of(2023, 3, 25),3, null,  null , sceances.get(1), null)
         );
         presRepo.saveAll(presentations);
 
-        var sallesVieuxMTL = sRepo.findAll().stream().filter(s -> s.getEtablissement().getTitre().equals(EtabMontreal.get(0).getTitre())).toList();
-
+        var sallesVieuxMTL = sRepo.findAllByEtablissement_Id(1L);
         for (var salle : sallesVieuxMTL) {
             salle.setPresentations(presentations.subList(0,2));
             sRepo.save(salle);
@@ -233,6 +232,12 @@ public class BackendApplication implements CommandLineRunner{
                 i++;
                 pRepo.save(place);
             } else return;
+        }
+
+        var presRepoData = presRepo.findAll();
+        for (var p: presRepoData) {
+            p.setSalle(salles.get(0));
+            presRepo.save(p);
         }
     }
 }

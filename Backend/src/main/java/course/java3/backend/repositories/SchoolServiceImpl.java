@@ -3,7 +3,6 @@ package course.java3.backend.repositories;
 import course.java3.backend.Entities.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -60,8 +59,9 @@ public class SchoolServiceImpl implements ISchoolServiceImpl{
     }
 
     @Override
-    public List<Presentation> FindPresentationByCoursAndSalleId(Long coursId, Long salleId) {
-        return null;
+    public List<Presentation> FindPresentationBySalleId(Long salleId) {
+        var pres = presRepo.findAllBySalle_Numero(salleId);
+        return pres;
     }
 
     @Override

@@ -1,25 +1,22 @@
-import {useEffect, useState} from "react";
+import {Key, useEffect, useState} from "react";
 import SchoolModel from "../../Model/SchoolModel";
 import Presentation = SchoolModel.Presentation;
 import {BASE_URL} from "../../App";
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 
 export const Presentations = () => {
-    let {etablissementId} = useParams()
-    var [presentations, setPresentations] = useState<Presentation[]>([])
+    const location = useLocation()
+    const presentations = location.state
 
-    useEffect(() => {(async () => {
-        const response = await fetch(BASE_URL + `presentations/${etablissementId}`)
-        const json = await response.json()
-        json !== null || [] ? setPresentations(json) : setPresentations([])
-    })()}, [])
-
-    return(
+    return (
         <div>
             <h2 className={"display-4 text-center"}>Présentations</h2>
+            <br/>
             <div className="d-grid gap-2 col-6 mx-auto">
-                {presentations.map((p) =>
-                    <Link to={`/${p.id}`} key={p.id} className="btn btn-primary">{p.cours.titre}</Link>)}
+                {presentations.map((p: Presentation) =>
+                    <p>{p.duree}</p>
+                    // <Link to={`/presentations/${p.id}`} key={p.id} className="btn btn-primary">Voir présentations</Link>
+                )}
             </div>
         </div>
     )

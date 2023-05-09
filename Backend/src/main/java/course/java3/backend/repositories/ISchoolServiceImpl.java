@@ -10,7 +10,8 @@ public interface ISchoolServiceImpl {
     public List<Salle> FindSalleByEtablissementId(Long id);
     public List<Cours> FindCoursBySalleId(Long id);
     public Specialite FindSpecialiteByCoursID(Long id);
-    public List<Presentation> FindPresentationByCoursAndSalleId(Long coursId, Long salleId);
+    public List<Presentation> FindPresentationBySalleId(Long salleId);
+
     public Sceance FindSceanceByPresentationId(Long id);
     public List<Coupon> FindAvailableCouponsBySceanceId(Long id);
     public Coupon FindPlaceByCouponId(Long id);
