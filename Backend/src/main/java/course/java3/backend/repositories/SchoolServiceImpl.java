@@ -60,8 +60,7 @@ public class SchoolServiceImpl implements ISchoolServiceImpl{
 
     @Override
     public List<Presentation> FindPresentationBySalleId(Long salleId) {
-        var pres = presRepo.findAllBySalle_Numero(salleId);
-        return pres;
+        return presRepo.findAllBySalle_Numero(salleId);
     }
 
     @Override

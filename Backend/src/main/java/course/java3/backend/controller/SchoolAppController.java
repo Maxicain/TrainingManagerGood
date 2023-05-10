@@ -38,7 +38,6 @@ public class SchoolAppController {
 
     @RequestMapping(value = "/presentations/{salleId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Presentation> getPresentationsJson(@PathVariable Long salleId){
-        var pres = schoolRepoImpl.FindPresentationBySalleId(salleId);
-        return pres;
+        return schoolRepoImpl.FindPresentationBySalleId(salleId);
     }
 }

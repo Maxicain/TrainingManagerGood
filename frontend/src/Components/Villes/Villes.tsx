@@ -18,7 +18,7 @@ export const Villes = () => {
             <h2 className={"display-4 text-center"}>Villes</h2>
             <div className="d-grid gap-2 col-6 mx-auto">
                 {villes.map((ville) =>
-                <Link to={`/etablissements/${ville.id}`} key={ville.id} className="btn btn-primary">{ville.nom}</Link>)}
+                <Link to={`etablissements/${ville.id}`} key={ville.id} className="btn btn-primary">{ville.nom}</Link>)}
             </div>
         </div>
     )

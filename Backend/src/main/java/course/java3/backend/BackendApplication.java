@@ -211,10 +211,10 @@ public class BackendApplication implements CommandLineRunner{
         var couponsPres3 = new ArrayList<>(couponRepo.findAll().subList(40, 60));
 
         List<Presentation> presentations = Arrays.asList(
-            new Presentation(null, LocalDate.of(2023, 3, 20),3, null,  null , sceances.get(0), couponsPres1),
-            new Presentation(null, LocalDate.of(2023, 3, 22),3, null,  null , sceances.get(0), couponsPres2),
-            new Presentation(null, LocalDate.of(2023, 3, 25),3, null,  null , sceances.get(0), couponsPres3),
-            new Presentation(null, LocalDate.of(2023, 3, 25),3, null,  null , sceances.get(1), null)
+            new Presentation(null, LocalDate.of(2023, 3, 20),3, allCourses.get(0),  null , sceances.get(0), couponsPres1),
+            new Presentation(null, LocalDate.of(2023, 3, 22),3, allCourses.get(0),  null , sceances.get(0), couponsPres2),
+            new Presentation(null, LocalDate.of(2023, 3, 25),3, allCourses.get(0),  null , sceances.get(0), couponsPres3),
+            new Presentation(null, LocalDate.of(2023, 3, 25),3, allCourses.get(0),  null , sceances.get(1), null)
         );
         presRepo.saveAll(presentations);
 
