@@ -5,9 +5,6 @@ import course.java3.backend.repositories.SchoolServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -40,8 +37,7 @@ public class SchoolAppController {
 
     @RequestMapping(value = "/coupons/{presentationId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Coupon> getCouponsJson(@PathVariable Long presentationId){
-        var coupons = schoolRepoImpl.FindCouponsByPresentation_Id(presentationId);
-        return coupons;
+        return schoolRepoImpl.FindCouponsByPresentation_Id(presentationId);
     }
 
     @RequestMapping(value = "/reserve/{couponId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
