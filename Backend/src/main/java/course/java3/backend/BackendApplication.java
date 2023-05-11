@@ -145,8 +145,8 @@ public class BackendApplication implements CommandLineRunner{
 
         List<Coupon> coupons = Arrays.asList(
             new Coupon(null, null, 5d, null, false, null, places.get(0)),
-            new Coupon(null, null, 5d, null, false, null, places.get(1)),
-            new Coupon(null, null, 5d, null, false, null, places.get(2)),
+            new Coupon(null, "Robert", 5d, null, true, null, places.get(1)),
+            new Coupon(null, "Jean", 5d, null, true, null, places.get(2)),
             new Coupon(null, null, 5d, null, false, null, places.get(3)),
             new Coupon(null, null, 5d, null, false, null, places.get(4)),
             new Coupon(null, null, 5d, null, false, null, places.get(5)),
