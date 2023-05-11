@@ -1,9 +1,6 @@
 package course.java3.backend.controller;
 
-import course.java3.backend.Entities.Etablissement;
-import course.java3.backend.Entities.Presentation;
-import course.java3.backend.Entities.Salle;
-import course.java3.backend.Entities.Ville;
+import course.java3.backend.Entities.*;
 import course.java3.backend.repositories.SchoolServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -39,5 +36,20 @@ public class SchoolAppController {
     @RequestMapping(value = "/presentations/{salleId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Presentation> getPresentationsJson(@PathVariable Long salleId){
         return schoolRepoImpl.FindPresentationBySalleId(salleId);
+    }
+
+    @RequestMapping(value = "/coupons/{presentationId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Coupon> getCouponsJson(@PathVariable Long presentationId){
+        var coupons = schoolRepoImpl.FindCouponsByPresentation_Id(presentationId);
+        return coupons;
+    }
+
+    @RequestMapping(value = "/reserve/{couponId}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Coupon reserveCoupon(@PathVariable Long couponId, @RequestBody Coupon newCoupon){
+        var coupon = schoolRepoImpl.FindCouponById(couponId);
+        coupon.setNomClient(newCoupon.getNomClient());
+        coupon.setReserve(newCoupon.isReserve());
+        coupon.setCodePaiement(Coupon.generateBarcode(12));
+        return schoolRepoImpl.saveCoupon(coupon);
     }
 }

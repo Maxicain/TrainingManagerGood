@@ -8,11 +8,8 @@ public interface ISchoolServiceImpl {
     public List<Ville> FindAllVille();
     public List<Etablissement> FindEtablissementByVilleId(Long id);
     public List<Salle> FindSalleByEtablissementId(Long id);
-    public List<Cours> FindCoursBySalleId(Long id);
-    public Specialite FindSpecialiteByCoursID(Long id);
     public List<Presentation> FindPresentationBySalleId(Long salleId);
-
-    public Sceance FindSceanceByPresentationId(Long id);
-    public List<Coupon> FindAvailableCouponsBySceanceId(Long id);
-    public Coupon FindPlaceByCouponId(Long id);
+    public List<Coupon> FindCouponsByPresentation_Id(Long presId);
+    public Coupon FindCouponById(Long id);
+    public Coupon saveCoupon(Coupon coupon);
 }

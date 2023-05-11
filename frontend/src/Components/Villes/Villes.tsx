@@ -3,15 +3,14 @@ import { BASE_URL } from "../../App";
 import SchoolModel from "../../Model/SchoolModel";
 import {Link} from "react-router-dom";
 import Ville = SchoolModel.Ville;
-import axios from "axios";
 
 export const Villes = () => {
-    var [villes, setVilles] = useState<Ville[]>([])
+    var [villes, SetVilles] = useState<Ville[]>([])
 
     useEffect(() => {(async () => {
-        await axios.get(BASE_URL + "villes")
-            .then(response => setVilles(response.data))
-            .catch(err => console.log(err))
+        const response = await fetch(BASE_URL + "villes");
+        const json = await response.json();
+        SetVilles(json)
     })()}, [])
 
     return(
@@ -19,7 +18,7 @@ export const Villes = () => {
             <h2 className={"display-4 text-center"}>Villes</h2>
             <div className="d-grid gap-2 col-6 mx-auto">
                 {villes.map((ville) =>
-                <Link to={`ville/${ville.id}/etablissements`} key={ville.id} className="btn btn-primary">{ville.nom}</Link>)}
+                <Link to={`etablissements/${ville.id}`} key={ville.id} className="btn btn-primary">{ville.nom}</Link>)}
             </div>
         </div>
     )

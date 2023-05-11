@@ -6,18 +6,18 @@ import {Link, useParams} from "react-router-dom";
 import {JsogService} from "jsog-typescript";
 
 export const Salles = () => {
-    let {etabId}  = useParams()
-    let [salles, setSalles] = useState<Salle[]>([])
+    let {etablissementId}  = useParams()
+    var [salles, setSalles] = useState<Salle[]>([])
     const jsog = new JsogService()
 
     useEffect(() => {(async () => {
-        await fetch(BASE_URL + `salle/${etabId}`)
+        await fetch(BASE_URL + `salle/${etablissementId}`)
             .then(response => response.json())
             .then(data => {
                 data = jsog.deserialize(data)
                 setSalles(data)
             })
-    })()}, [etabId])
+    })()}, [etablissementId])
 
     return(
         <div>

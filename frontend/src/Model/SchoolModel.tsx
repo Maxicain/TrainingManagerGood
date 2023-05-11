@@ -25,7 +25,6 @@ export namespace SchoolModel{
         nbrCredit: number
         duree: number
         presentations: [Presentation]
-        specialite: Specialite
     }
 
     export interface Presentation{
