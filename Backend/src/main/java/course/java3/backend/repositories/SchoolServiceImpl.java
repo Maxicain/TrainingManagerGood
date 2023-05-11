@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -50,23 +49,32 @@ public class SchoolServiceImpl implements ISchoolServiceImpl{
     }
 
     @Override
+    public List<Cours> FindCoursBySalleId(Long id) {
+        return null;
+    }
+
+    @Override
+    public Specialite FindSpecialiteByCoursID(Long id) {
+        return null;
+    }
+
+    @Override
     public List<Presentation> FindPresentationBySalleId(Long salleId) {
         return presRepo.findAllBySalle_Numero(salleId);
     }
 
     @Override
-    public List<Coupon> FindCouponsByPresentation_Id(Long presentationId){
-        return coupRepo.findAllByPresentation_Id(presentationId);
+    public Sceance FindSceanceByPresentationId(Long id) {
+        return null;
     }
 
     @Override
-    public Coupon FindCouponById(Long id) {
-        return coupRepo.findById(id).orElse(null);
+    public List<Coupon> FindAvailableCouponsBySceanceId(Long id) {
+        return null;
     }
 
     @Override
-    public Coupon saveCoupon(Coupon coupon){
-        coupRepo.save(coupon);
-        return coupon;
+    public Coupon FindPlaceByCouponId(Long id) {
+        return null;
     }
 }
