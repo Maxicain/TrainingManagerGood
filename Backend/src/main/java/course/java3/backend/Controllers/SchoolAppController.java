@@ -1,7 +1,7 @@
-package course.java3.backend.controller;
+package course.java3.backend.Controllers;
 
 import course.java3.backend.Entities.*;
-import course.java3.backend.repositories.SchoolServiceImpl;
+import course.java3.backend.Services.SchoolServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;

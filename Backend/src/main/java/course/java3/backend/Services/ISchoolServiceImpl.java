@@ -1,4 +1,4 @@
-package course.java3.backend.repositories;
+package course.java3.backend.Services;
 
 import course.java3.backend.Entities.*;
 
