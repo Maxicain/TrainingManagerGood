@@ -29,4 +29,9 @@ public class AppUserController {
     public AppUser postUser(@RequestBody AppUser user){
         return accountService.addUser(user);
     }
+
+    @PostMapping(path = "/auth/")
+    public void loginWithUserAndPassword(@RequestBody AppUser user){
+
+    }
 }

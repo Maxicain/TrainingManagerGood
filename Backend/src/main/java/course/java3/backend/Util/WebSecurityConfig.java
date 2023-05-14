@@ -1,4 +1,5 @@
-package com.example.securingweb;
+package course.java3.backend.Util;
+
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
