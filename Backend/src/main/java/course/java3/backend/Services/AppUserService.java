@@ -39,9 +39,4 @@ public class AppUserService implements IAppUserService{
     public AppUser loadUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
-
-    @Override
-    public List<AppUser> listUsers() {
-        return userRepository.findAll();
-    }
 }
