@@ -253,7 +253,7 @@ public class BackendApplication implements CommandLineRunner{
 
         var users = Arrays.asList(
             new AppUser(null, "admin", "Admin22!", roles.subList(0,1)),
-            new AppUser(null, "baseUser", "Test-123", roles.subList(1,1))
+            new AppUser(null, "User", "Test-123", roles.subList(1,1))
         );
         userRepo.saveAll(users);
     }
