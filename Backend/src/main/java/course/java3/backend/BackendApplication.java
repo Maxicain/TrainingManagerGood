@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -251,9 +252,10 @@ public class BackendApplication implements CommandLineRunner{
         );
         roleRepo.saveAll(roles);
 
+        var passwordEncoder = new BCryptPasswordEncoder();
         var users = Arrays.asList(
-            new AppUser(null, "admin", "Admin22!", roles.subList(0,1)),
-            new AppUser(null, "User", "Test-123", roles.subList(1,1))
+            new AppUser(null, "admin", passwordEncoder.encode("Admin22!"), roles.subList(0,1)),
+            new AppUser(null, "User", passwordEncoder.encode("Test-123"), roles.subList(1,1))
         );
         userRepo.saveAll(users);
     }

@@ -17,6 +17,8 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +28,7 @@ import java.util.Collections;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class AppUserService implements IAppUserService{
+public class AppUserService implements IAppUserService {
     private final IAppUserRepository userRepository;
     private final IAppRoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
@@ -44,7 +46,8 @@ public class AppUserService implements IAppUserService{
                 null,
                 request.getUsername(),
                 passwordEncoder.encode(request.getPassword()),
-                Collections.singletonList(roleRepository.findByRoleName("user")));
+                Collections.singletonList(roleRepository.findByRoleName("user"))
+        );
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()

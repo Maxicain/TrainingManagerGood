@@ -12,9 +12,13 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/")
 public class SchoolAppController {
-
     @Autowired
     public SchoolServiceImpl schoolRepoImpl;
+
+    @GetMapping("hello")
+    public ResponseEntity<String> sayHello(){
+        return ResponseEntity.ok("Hello from SECURED endpoint");
+    }
 
     @RequestMapping(value = "/villes", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Ville> getVilleJSON(){

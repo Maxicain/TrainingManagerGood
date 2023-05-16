@@ -8,6 +8,7 @@ export const LoginPage = () => {
     const [password, setPassword] = useState<String>("")
     const navigate = useNavigate()
 
+
     const submitLogin = () => {
         axios.post(BASE_URL + "login/auth", {username, password})
             .then( response => {
@@ -18,8 +19,6 @@ export const LoginPage = () => {
             })
             .catch( err => console.log(err))
     }
-
-
 
     return (
         <div>
