@@ -1,6 +1,5 @@
-package course.java3.backend.repositories;
+package course.java3.backend.Repositories;
 
-import course.java3.backend.Entities.Etablissement;
 import course.java3.backend.Entities.Salle;
 import org.springframework.data.jpa.repository.JpaRepository;
 

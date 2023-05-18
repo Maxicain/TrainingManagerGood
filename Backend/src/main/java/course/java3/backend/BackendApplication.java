@@ -1,11 +1,13 @@
 package course.java3.backend;
 
 import course.java3.backend.Entities.*;
-import course.java3.backend.repositories.*;
+import course.java3.backend.Repositories.*;
+import course.java3.backend.Services.ISchoolServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.time.LocalDate;
 import java.util.*;
@@ -21,6 +23,8 @@ public class BackendApplication implements CommandLineRunner{
     @Autowired ISceanceRepository scRepo;
     @Autowired ICouponRepository couponRepo;
     @Autowired IPresentationRepository presRepo;
+    @Autowired IAppRoleRepository roleRepo;
+    @Autowired IAppUserRepository userRepo;
 
     public static void main(String[] args) {
         SpringApplication.run(BackendApplication.class, args);
@@ -32,6 +36,7 @@ public class BackendApplication implements CommandLineRunner{
         Ville tto = new Ville(null, "Toronto", null);
         vRepo.save(mtl);
         vRepo.save(tto);
+
         Ville mtlRepo = vRepo.findById(1l).get();
         Ville ttoRepo = vRepo.findById(2l).get();
 
@@ -239,5 +244,19 @@ public class BackendApplication implements CommandLineRunner{
             p.setSalle(salles.get(0));
             presRepo.save(p);
         }
+
+        var roles = Arrays.asList(
+                new AppRole(null, "admin"),
+                new AppRole(null, "user"),
+                new AppRole(null, "guest")
+        );
+        roleRepo.saveAll(roles);
+
+        var passwordEncoder = new BCryptPasswordEncoder();
+        var users = Arrays.asList(
+            new AppUser(null, "admin", passwordEncoder.encode("Admin22!"), roles.subList(0,1)),
+            new AppUser(null, "User", passwordEncoder.encode("Test-123"), roles.subList(1,1))
+        );
+        userRepo.saveAll(users);
     }
 }

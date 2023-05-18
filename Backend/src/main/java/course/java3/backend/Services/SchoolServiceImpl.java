@@ -1,19 +1,18 @@
-package course.java3.backend.repositories;
+package course.java3.backend.Services;
 
 import course.java3.backend.Entities.*;
+import course.java3.backend.Repositories.*;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
 @Service
 @Transactional
-@Component("schoolRepoImpl")
-public class SchoolServiceImpl implements ISchoolServiceImpl{
+//@Component("schoolRepoImpl")
+public class SchoolServiceImpl implements ISchoolServiceImpl {
 
     @Autowired
     private IVilleRepository vRepo;
@@ -22,17 +21,9 @@ public class SchoolServiceImpl implements ISchoolServiceImpl{
     @Autowired
     private ISalleRepository salleRepo;
     @Autowired
-    private ICoursRepository coursRepo;
-    @Autowired
-    private ISpecialiteRepository specRepo;
-    @Autowired
     private IPresentationRepository presRepo;
     @Autowired
-    private ISceanceRepository sceaRepo;
-    @Autowired
     private ICouponRepository coupRepo;
-    @Autowired
-    private IPlaceRepository placRepo;
 
     @Override
     public List<Ville> FindAllVille() {
