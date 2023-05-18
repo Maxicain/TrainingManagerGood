@@ -1,9 +1,8 @@
 package course.java3.backend;
 
 import course.java3.backend.Entities.*;
-import course.java3.backend.Repositories.*;
-import course.java3.backend.Services.ISchoolServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import course.java3.backend.Repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

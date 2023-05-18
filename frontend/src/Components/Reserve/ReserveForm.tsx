@@ -1,10 +1,9 @@
 import {BASE_URL} from "../../App";
-import {json, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import SchoolModel from "../../Model/SchoolModel";
 import Coupon = SchoolModel.Coupon;
-import {FormEvent, FormEventHandler, useState} from "react";
+import {FormEvent, useState} from "react";
 import {JsogService} from "jsog-typescript";
-import coupons from "../Coupons/Coupons";
 import axios from "axios";
 
 export const ReserveForm = () => {

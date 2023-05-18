@@ -1,9 +1,6 @@
-import {Link, useLocation, useParams} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import SchoolModel from "../../Model/SchoolModel";
 import Coupon = SchoolModel.Coupon;
-import {useEffect, useState} from "react";
-import {BASE_URL} from "../../App";
-import axios from "axios";
 
 export const Coupons = () => {
     const location = useLocation();

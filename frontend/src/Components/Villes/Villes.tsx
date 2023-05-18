@@ -9,7 +9,9 @@ export const Villes = () => {
     var [villes, setVilles] = useState<Ville[]>([])
 
     useEffect(() => {(async () => {
-        await axios.get(BASE_URL + "villes")
+        await axios.get(BASE_URL + "villes", {headers:{
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }})
             .then(response => setVilles(response.data))
             .catch(err => console.log(err))
     })()}, [])

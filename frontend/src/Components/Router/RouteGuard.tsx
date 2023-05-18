@@ -13,7 +13,7 @@ const RouteGuard: React.FC<ParentCompProps> = (props) => {
     }
 
     return (
-        <Routes>
+        <Routes> 
             <Route element={
                 hasJWT() ?
                     childComp :
