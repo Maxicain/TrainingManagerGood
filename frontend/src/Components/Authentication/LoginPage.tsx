@@ -9,13 +9,14 @@ export const LoginPage = () => {
     const navigate = useNavigate()
 
 
-    const submitLogin = () => {
+    const submitLogin = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
         axios.post(BASE_URL + "login/auth", {username, password})
             .then( response => {
                 const token = response.data.token
                 localStorage.setItem("token", token)
                 setAuthToken(token)
-                navigate("/ville")
+                navigate("/villes")
             })
             .catch( err => console.log(err))
     }
@@ -39,7 +40,6 @@ export const LoginPage = () => {
                     <input type="submit" value="Login" className="btn btn-primary"/>
                 </div>
             </form>
-
         </div>
     )
 }
