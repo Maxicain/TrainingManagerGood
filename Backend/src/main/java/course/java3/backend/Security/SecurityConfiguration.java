@@ -27,6 +27,7 @@ public class SecurityConfiguration {
     private final AuthenticationProvider authenticationProvider;
     public final IAppUserRepository userRepo;
 
+    //Authentifications, autorisations et sécurité de l'application
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http

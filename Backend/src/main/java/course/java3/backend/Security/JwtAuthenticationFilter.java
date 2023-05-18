@@ -24,6 +24,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
+    //Fonction qui valide le JWT du header, prend le username de l'usager connecté, charge les données de l'utilisateur et
+    //si le JWT est valide, la fonction va "Set" l'authentification dans le context de la sécurité de l'application.
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {

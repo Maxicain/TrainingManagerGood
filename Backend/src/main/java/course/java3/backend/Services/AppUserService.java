@@ -35,11 +35,13 @@ public class AppUserService implements IAppUserService {
     private final JwtService jwtService;
     private final AuthenticationManager authenticationManager;
 
+    //Fetch un appUser par son nom d'usager
     @Override
     public AppUser loadUserByUsername(String username) {
         return userRepository.findByUsername(username);
     }
 
+    //Enregistrement d'un nouveau utilisateur à l'application et génération d'un JWT
     @Override
     public AuthenticationResponse register(RegisterRequest request) {
         var user = new AppUser(
@@ -55,6 +57,7 @@ public class AppUserService implements IAppUserService {
                 .build();
     }
 
+    //Connexion à l'application et génération d'un JWT en lien avec l'utilisateur
     @Override
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager.authenticate(
