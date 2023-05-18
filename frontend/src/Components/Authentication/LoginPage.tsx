@@ -16,7 +16,8 @@ export const LoginPage = () => {
                 const token = response.data.token
                 localStorage.setItem("token", token)
                 setAuthToken(token)
-                navigate("/villes")
+                console.log(token)
+                navigate("/ville")
             })
             .catch( err => console.log(err))
     }

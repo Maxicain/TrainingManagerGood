@@ -15,7 +15,7 @@ export const AppRouter = () => {
             <Routes>
                 <Route path={"*"} element={<RouteGuard childComp={<Villes/>}/>}/>
                 <Route path={"/"} element={<LoginPage/>}/>
-                <Route path={`/villes`} element={<Villes/>}/>
+                <Route path={`/ville`} element={<Villes/>}/>
                 <Route path={`/ville/:villeId/etablissements`} element={<Etablissements/>}/>
                 <Route path={`/ville/:villeId/etablissements/:etabId/salles`} element={<Salles/>}/>
                 <Route path={`/ville/:villeId/etablissements/:etabId/salles/presentations/`} element={<Presentations />}/>
