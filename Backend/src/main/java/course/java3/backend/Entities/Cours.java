@@ -1,16 +1,18 @@
 package course.java3.backend.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIdentityInfo(generator= JSOGGenerator.class)
 public class Cours {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +22,7 @@ public class Cours {
     private int nbrCredit;
     private int duree;
     @OneToMany(mappedBy = "cours")
-    private Set<Presentation> presentations;
+    private List<Presentation> presentations;
     @OneToOne
     private Specialite specialite;
 }

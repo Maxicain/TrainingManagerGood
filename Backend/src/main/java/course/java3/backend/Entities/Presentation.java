@@ -1,20 +1,25 @@
 package course.java3.backend.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.voodoodyne.jackson.jsog.JSOGGenerator;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-import java.util.Set;
+import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIdentityInfo(generator= JSOGGenerator.class)
 public class Presentation {
     @Id
-    private Date date;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private LocalDate date;
     private int duree;
     @ManyToOne
     @JoinColumn(name = "cours_id")
@@ -25,5 +30,5 @@ public class Presentation {
     @OneToOne
     private Sceance sceance;
     @OneToMany
-    private Set<Coupon> coupons;
+    private List<Coupon> coupons;
 }
