@@ -1,4 +1,4 @@
-export namespace SchoolModel{
+namespace SchoolModel {
     export interface Ville {
         id: number
         nom: string

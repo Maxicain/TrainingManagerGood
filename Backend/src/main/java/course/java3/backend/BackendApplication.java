@@ -31,68 +31,68 @@ public class BackendApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        Ville mtl = new Ville(null, "Montreal", null);
-        Ville tto = new Ville(null, "Toronto", null);
-        vRepo.save(mtl);
-        vRepo.save(tto);
+        Ville sd = new Ville(null, "San Diego", null);
+        Ville la = new Ville(null, "Los Angeles", null);
+        vRepo.save(sd);
+        vRepo.save(la);
 
-        Ville mtlRepo = vRepo.findById(1l).get();
-        Ville ttoRepo = vRepo.findById(2l).get();
+        Ville sdRepo = vRepo.findById(1l).get();
+        Ville laRepo = vRepo.findById(2l).get();
 
-        List<Etablissement> EtabMontreal = Arrays.asList(
-                new Etablissement(null, "Cegep du Vieux Montreal", mtlRepo),
-                new Etablissement(null, "UQAM", mtlRepo)
+        List<Etablissement> EtabSD = Arrays.asList(
+                new Etablissement(null, "CSUSM", sdRepo),
+                new Etablissement(null, "UCSD", laRepo)
         );
 
-        List<Etablissement> EtabToronto = Arrays.asList(
-                new Etablissement(null, "University of Toronto", ttoRepo),
-                new Etablissement(null, "York University", ttoRepo)
+        List<Etablissement> EtabLA = Arrays.asList(
+                new Etablissement(null, "UCLA", sdRepo),
+                new Etablissement(null, "CSULA", laRepo)
         );
-        mtl.setEtablissements(EtabMontreal);
-        tto.setEtablissements(EtabToronto);
-        eRepo.saveAll(EtabMontreal);
-        eRepo.saveAll(EtabToronto);
+        sd.setEtablissements(EtabSD);
+        la.setEtablissements(EtabLA);
+        eRepo.saveAll(EtabLA);
+        eRepo.saveAll(EtabSD);
 
         List<Specialite> specialites = Arrays.asList(
             new Specialite(null, "Computer Science", null),
             new Specialite(null, "Mathematics", null),
-            new Specialite(null, "Langues", null)
+            new Specialite(null, "Languages", null)
         );
         specRepo.saveAll(specialites);
 
         Specialite cs = specRepo.findById(1l).get();
         Specialite math = specRepo.findById(2l).get();
-        Specialite langues = specRepo.findById(3l).get();
+        Specialite languages = specRepo.findById(3l).get();
 
         List<Cours> allCourses = Arrays.asList(
-            new Cours(null, "Programmation Orientée Objet 1", "Programmation en Java et introduction aux concepts de l'orienté objet.",3,6,null, cs),
-            new Cours(null, "Programmation Orientée Objet 2", "Programmation en Java et concepts avancés de l'orienté objet.",3,6,null, cs),
-            new Cours(null, "Programmation Web Transactionnelle", "Programmation en Java d'applications serveurs.",3,6,null, cs),
-            new Cours(null, "Calcul différentiel", "Apprendre comment dériver.",3,6,null, math),
-            new Cours(null, "Calcul intégral", "Apprendre comment intégrer.",3,6,null, math),
-            new Cours(null, "Algèbre linéaire", "Vecteurs et matrices.",3,6,null, math),
-            new Cours(null, "Anglais 1", "Anglais de base.",3,6,null, langues),
-            new Cours(null, "Anglais 2", "Anglais intermédiaire.",3,6,null, langues),
-            new Cours(null, "Français 1", "Français de base.",3,6,null, langues),
-            new Cours(null, "Français 2", "Français intermédiaire.",3,6,null, langues)
+            new Cours(null, "CS 111", "Intro to programming and introduction to OOP concepts.",3,6,null, cs),
+            new Cours(null, "CS 211", "Advanced OOP concepts.",3,6,null, cs),
+            new Cours(null, "Client-side application development", "Programmation en Java d'applications serveurs.",3,6,null, cs),
+            new Cours(null, "Math 160", "Calculus 1 - Derivation",3,6,null, math),
+            new Cours(null, "Math 162", "Calculus 2 - Integration",3,6,null, math),
+            new Cours(null, "Math 270", "Discrete mathematics",3,6,null, math),
+            new Cours(null, "GEW 101B", "General Education Writing course ",3,6,null, languages),
+            new Cours(null, "GEL 101A", "General Education Oral communications course",3,6,null, languages),
+            new Cours(null, "French 1", "Intro to the French language",3,6,null, languages),
+            new Cours(null, "French 2", "Intermediate french",3,6,null, languages)
         );
         cRepo.saveAll(allCourses);
 
         cs.setCours(allCourses.subList(0,2));
         math.setCours(allCourses.subList(3,5));
-        langues.setCours(allCourses.subList(6,9));
+        languages.setCours(allCourses.subList(6,9));
 
         specRepo.saveAll(specialites);
 
         List<Salle> salles = Arrays.asList(
-            new Salle(null,"A-100", EtabMontreal.get(0), null),
-            new Salle(null,"A-200", EtabMontreal.get(0), null),
-            new Salle(null,"B-100", EtabMontreal.get(1), null),
-            new Salle(null,"B-200", EtabMontreal.get(1), null),
-            new Salle(null,"C-100", EtabToronto.get(0), null),
-            new Salle(null,"C-200", EtabToronto.get(0), null),
-            new Salle(null,"D-100", EtabToronto.get(1), null),
-            new Salle(null,"D-200", EtabToronto.get(1), null)
+            new Salle(null,"A-100", EtabLA.get(0), null),
+            new Salle(null,"A-200", EtabLA.get(0), null),
+            new Salle(null,"B-100", EtabLA.get(1), null),
+            new Salle(null,"B-200", EtabLA.get(1), null),
+            new Salle(null,"C-100", EtabSD.get(0), null),
+            new Salle(null,"C-200", EtabSD.get(0), null),
+            new Salle(null,"D-100", EtabSD.get(1), null),
+            new Salle(null,"D-200", EtabSD.get(1), null)
         );
         sRepo.saveAll(salles);
 
@@ -150,7 +150,7 @@ public class BackendApplication implements CommandLineRunner{
         List<Coupon> coupons = Arrays.asList(
             new Coupon(null, null, 5d, null, false, null, places.get(0)),
             new Coupon(null, "Robert", 5d, null, true, null, places.get(1)),
-            new Coupon(null, "Jean", 5d, null, true, null, places.get(2)),
+            new Coupon(null, "John", 5d, null, true, null, places.get(2)),
             new Coupon(null, null, 5d, null, false, null, places.get(3)),
             new Coupon(null, null, 5d, null, false, null, places.get(4)),
             new Coupon(null, null, 5d, null, false, null, places.get(5)),

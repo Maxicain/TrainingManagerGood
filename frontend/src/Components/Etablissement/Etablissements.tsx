@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { BASE_URL } from "../../App"
-import SchoolModel from "../../Model/SchoolModel";
-import Etablissement = SchoolModel.Etablissement;
-import {Link, useParams} from "react-router-dom";
+import SchoolModel from "../../Model/SchoolModel"
+import Etablissement = SchoolModel.Etablissement
+import {Link, useParams} from "react-router-dom"
 import axios from "axios";
 
 export const Etablissements = () => {

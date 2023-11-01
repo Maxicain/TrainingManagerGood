@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import SchoolModel from "../../Model/SchoolModel";
-import Salle = SchoolModel.Salle;
+import Salle = SchoolModel.Salle
 import {BASE_URL} from "../../App";
 import {Link, useParams} from "react-router-dom";
 import {JsogService} from "jsog-typescript";

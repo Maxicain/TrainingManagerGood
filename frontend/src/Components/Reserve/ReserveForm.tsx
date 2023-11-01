@@ -1,7 +1,7 @@
 import {BASE_URL} from "../../App";
 import {useLocation} from "react-router-dom";
 import SchoolModel from "../../Model/SchoolModel";
-import Coupon = SchoolModel.Coupon;
+import Coupon = SchoolModel.Coupon
 import {FormEvent, useState} from "react";
 import {JsogService} from "jsog-typescript";
 import axios from "axios";
