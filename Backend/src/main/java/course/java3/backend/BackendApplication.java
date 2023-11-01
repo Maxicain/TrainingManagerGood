@@ -85,14 +85,14 @@ public class BackendApplication implements CommandLineRunner{
         specRepo.saveAll(specialites);
 
         List<Salle> salles = Arrays.asList(
-            new Salle(null,"A-100", EtabLA.get(0), null),
-            new Salle(null,"A-200", EtabLA.get(0), null),
-            new Salle(null,"B-100", EtabLA.get(1), null),
-            new Salle(null,"B-200", EtabLA.get(1), null),
-            new Salle(null,"C-100", EtabSD.get(0), null),
-            new Salle(null,"C-200", EtabSD.get(0), null),
-            new Salle(null,"D-100", EtabSD.get(1), null),
-            new Salle(null,"D-200", EtabSD.get(1), null)
+            new Salle(null,"A-100", EtabSD.get(0), null),
+            new Salle(null,"A-200", EtabSD.get(0), null),
+            new Salle(null,"B-100", EtabSD.get(1), null),
+            new Salle(null,"B-200", EtabSD.get(1), null),
+            new Salle(null,"C-100", EtabLA.get(0), null),
+            new Salle(null,"C-200", EtabLA.get(0), null),
+            new Salle(null,"D-100", EtabLA.get(1), null),
+            new Salle(null,"D-200", EtabLA.get(1), null)
         );
         sRepo.saveAll(salles);
 
