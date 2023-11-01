@@ -32,7 +32,7 @@ export const ReserveForm = () => {
 
     return (
         <div>
-            <h2 className={"display-4 text-center"}>Réserver votre place</h2>
+            <h2 className={"display-4 text-center"}>Reserve your place</h2>
             <br/>
             <form onSubmit={submitReservation}>
                 <div className="form-group col-4 mx-auto">

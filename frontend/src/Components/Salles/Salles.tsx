@@ -21,7 +21,7 @@ export const Salles = () => {
 
     return(
         <div>
-            <h2 className={"display-4 text-center"}>Salles</h2>
+            <h2 className={"display-4 text-center"}>Lecture Halls</h2>
             <br/>
             <div className="d-grid gap-2 col-6 mx-auto">
                 {salles.map((s) =>

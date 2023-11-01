@@ -8,7 +8,7 @@ export const Presentations = () => {
 
   return (
     <div>
-      <h2 className={"display-4 text-center"}>Présentations</h2>
+      <h2 className={"display-4 text-center"}>Presentations</h2>
       <br />
       <div className="row">
         {presentations.map((p: Presentation) => (

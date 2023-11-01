@@ -41,11 +41,11 @@ public class BackendApplication implements CommandLineRunner{
 
         List<Etablissement> EtabSD = Arrays.asList(
                 new Etablissement(null, "CSUSM", sdRepo),
-                new Etablissement(null, "UCSD", laRepo)
+                new Etablissement(null, "UCSD", sdRepo)
         );
 
         List<Etablissement> EtabLA = Arrays.asList(
-                new Etablissement(null, "UCLA", sdRepo),
+                new Etablissement(null, "UCLA", laRepo),
                 new Etablissement(null, "CSULA", laRepo)
         );
         sd.setEtablissements(EtabSD);
