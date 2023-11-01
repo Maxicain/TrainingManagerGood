@@ -1,9 +1,8 @@
 import {useEffect, useState} from "react";
-import SchoolModel from "../../Model/SchoolModel";
-import Salle = SchoolModel.Salle
 import {BASE_URL} from "../../App";
 import {Link, useParams} from "react-router-dom";
 import {JsogService} from "jsog-typescript";
+import {Salle} from "../SchoolModel";
 
 export const Salles = () => {
     let {etabId}  = useParams()
@@ -28,7 +27,7 @@ export const Salles = () => {
                     <div key={s.id}>
                         <p className={"fw-normal lh-1"}>{s.etablissement.titre}</p>
                         <p className={"fw-light fst-italic lh-1"}>{s.nom}</p>
-                        <Link to={`presentations`} key={s.id} className="btn btn-primary" state={s.presentations}>Voir présentations</Link>
+                        <Link to={`presentations`} key={s.id} className="btn btn-primary" state={s.presentations}>See Presentations</Link>
                         <br/>
                         <br/>
                     </div>

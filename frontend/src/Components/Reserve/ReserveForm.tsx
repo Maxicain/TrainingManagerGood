@@ -1,10 +1,9 @@
 import {BASE_URL} from "../../App";
 import {useLocation} from "react-router-dom";
-import SchoolModel from "../../Model/SchoolModel";
-import Coupon = SchoolModel.Coupon
 import {FormEvent, useState} from "react";
 import {JsogService} from "jsog-typescript";
 import axios from "axios";
+import {Coupon} from "../SchoolModel";
 
 export const ReserveForm = () => {
     const location = useLocation();
@@ -25,7 +24,7 @@ export const ReserveForm = () => {
             .then(response => setCoupon(response.data))
             .catch( error => console.log(error))
             .finally(() =>  {
-                alert("Votre coupon a été réservé sous le nom de " + coupon.nomClient)
+                alert("Coupon was reserved for: " + coupon.nomClient)
                 setFormSubmitted(true)
             })
     }
@@ -36,18 +35,18 @@ export const ReserveForm = () => {
             <br/>
             <form onSubmit={submitReservation}>
                 <div className="form-group col-4 mx-auto">
-                    <label className={"control-label fst-italic fw-bold lh-1"}>Quel est le nom du déteneur du coupon?</label>
-                    <input type={"text"} onChange={e => setNomClient(e.target.value)} placeholder={"Nom"} className={"form-control mb-3"}/>
+                    <label className={"control-label fst-italic fw-bold lh-1"}>Coupon holder's name?</label>
+                    <input type={"text"} onChange={e => setNomClient(e.target.value)} placeholder={"Name"} className={"form-control mb-3"}/>
                 </div>
                 <div className="form-group">
-                    <input type="submit" value="Réserver" className="btn btn-primary"/>
+                    <input type="submit" value="Reserve" className="btn btn-primary"/>
                 </div>
             </form>
             {formSubmitted && (
                 <div>
                     <br/>
-                    <p>Votre code de paiement est: {coupon.codePaiement}.</p>
-                    <p className={"fw-bold"}>Gardez le précieusement!</p>
+                    <p>Your payment confirmation code: {coupon.codePaiement}.</p>
+                    <p className={"fw-bold"}>Make sure you keep it!</p>
                 </div>
             )}
         </div>

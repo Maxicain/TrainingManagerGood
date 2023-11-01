@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import { BASE_URL } from "../../App"
-import SchoolModel  from "../../Model/SchoolModel"
-import Ville = SchoolModel.Ville
 import { Link } from "react-router-dom"
-import axios from "axios"   
+import axios from "axios"
+import {Ville} from "../SchoolModel";
 
 export const Villes = () => {
     var [villes, setVilles] = useState<Ville[]>([])

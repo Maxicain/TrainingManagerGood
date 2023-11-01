@@ -1,6 +1,5 @@
 import {Link, useLocation} from "react-router-dom";
-import SchoolModel from "../../Model/SchoolModel";
-import Coupon = SchoolModel.Coupon
+import {Coupon} from "../SchoolModel";
 
 export const Coupons = () => {
     const location = useLocation();

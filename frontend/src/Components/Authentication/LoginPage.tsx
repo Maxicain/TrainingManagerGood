@@ -16,7 +16,6 @@ export const LoginPage = () => {
                 const token = response.data.token
                 localStorage.setItem("token", token)
                 setAuthToken(token)
-                console.log(token)
                 navigate("/ville")
             })
             .catch( err => console.log(err))
@@ -24,18 +23,18 @@ export const LoginPage = () => {
 
     return (
         <div>
-            <h2 className={"display-4 text-center"}>Page d'accueil</h2>
+            <h2 className={"display-4 text-center"}>BetterThanCanvas</h2>
             <h2 className={"display-6 text-center"}>Login</h2>
             <br/>
             <form onSubmit={submitLogin}>
                 <div className="form-group col-4 mx-auto">
                     <label className={"control-label fst-italic fw-bold lh-1"}>Username</label>
-                    <input type={"text"} onChange={e => setUsername(e.target.value)} placeholder={"Nom d'utilisateur"} className={"form-control mb-3"}/>
+                    <input type={"text"} onChange={e => setUsername(e.target.value)} placeholder={"Username"} className={"form-control mb-3"}/>
                 </div>
 
                 <div className="form-group col-4 mx-auto">
                     <label className={"control-label fst-italic fw-bold lh-1"}>Password</label>
-                    <input type={"password"} onChange={e => setPassword(e.target.value)} placeholder={"Mot de passe"} className={"form-control mb-3"}/>
+                    <input type={"password"} onChange={e => setPassword(e.target.value)} placeholder={"Password"} className={"form-control mb-3"}/>
                 </div>
                 <div className="form-group">
                     <input type="submit" value="Login" className="btn btn-primary"/>
